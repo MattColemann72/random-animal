@@ -5,7 +5,7 @@ from application import app
 
 
 @app.route('/', methods = ['GET', 'POST'])
-@app.route('/home', methods = ['GET', 'POST'])
+@app.route('/animal2', methods = ['GET', 'POST'])
 def genanimal2():
     #hippopotamus,elephant,monkey,dolphin,zebra
     G2animals = ["potamus", "phant", "key", "phin", "bra"]
