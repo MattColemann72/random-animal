@@ -1,6 +1,8 @@
 from flask import render_template
 from application import app
+from application.forms import GenerateAnimal
 import random
+
 
 
 
@@ -29,16 +31,16 @@ def index():
         anim1 = "Li"
         animal1 = "Lion"
     elif randAnimal1 == 2:
-        anim1 = "do"
+        anim1 = "Do"
         animal1 = "Dog"
     elif randAnimal1 == 3:
-        anim1 = "ca"
+        anim1 = "Ca"
         animal1 = "Cat"
     elif randAnimal1 == 4:
-        anim1 = "co"
+        anim1 = "Co"
         animal1 = "Cow"
     elif randAnimal1 == 5:
-        anim1 = "she"
+        anim1 = "She"
         animal1 = "Sheep"
     
     if randAnimal2 == 6:
