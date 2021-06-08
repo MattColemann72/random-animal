@@ -7,6 +7,7 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = getenv('SECRET_KEY')
+app.config['SECRET_KEY'] = 'jhisaogh485*^(£"HSFB8qhr873u78&84'
+#getenv('SECRET_KEY')
 
 from application import routes

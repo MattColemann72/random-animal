@@ -1,16 +1,18 @@
-FROM python
+FROM python:latest
 
-ARG SECRET_KEY
+# WORKDIR service-1
 
-RUN apt update
-RUN apt install python3-pip -y
+# RUN apt update
+# RUN apt install python3-pip -y
 
-ENV SECRET_KEY=${SECRET_KEY}
+# ENV SECRET_KEY=${SECRET_KEY}
 
-COPY . .
+COPY . /app
+
+WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-EXPOSE 5001
+EXPOSE 5000
 
 ENTRYPOINT ["python3", "app.py"]

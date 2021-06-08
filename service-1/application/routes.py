@@ -11,9 +11,9 @@ from application.forms import GenerateAnimal
 @app.route('/home', methods = ['GET', 'POST'])
 def index():
 
-    animal1 = ""
-    animal2 = ""
-    randanimal = ""
+    animal1 = "animal 1"
+    animal2 = "animal 2"
+    randanimal = "new animal"
 
     # animal1 = "Lion"
     # animal2 = "dog"
@@ -33,9 +33,9 @@ def index():
         return render_template('index.html', title="Random Animal Name Generator", form=form)
     
     if form.validate_on_submit():
-        get_animal1 = requests.get('http://service-2:5001/animal1')
+        get_animal1 = requests.get('http://service-2:5000/animal1')
         animal1 = get_animal1.text
-        get_animal2 = requests.get('http://service-3:5002/animal2')
+        get_animal2 = requests.get('http://service-3:5000/animal2')
         animal2 = get_animal2.text
 
         randanimal = animal1 + animal2
