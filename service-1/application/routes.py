@@ -22,9 +22,9 @@ def index():
     
     if form.validate_on_submit():
         get_animal1 = requests.get('http://service-2:5000/animal1').text
-        animal1 = get_animal1.text
+        animal1 = get_animal1
         get_animal2 = requests.get('http://service-3:5000/animal2').text
-        animal2 = get_animal2.text
+        animal2 = get_animal2
 
         randanimal = animal1 + animal2
         #Lion, Dog, Cat, Cow, Sheep
@@ -44,14 +44,14 @@ def index():
         # "potamus", "phant", "key", "phin", "bra"
         if animal2 == "potamus":
             animal2 = "Hippopotamus"
-        elif animal2 == "phant":
-            anima2 = "Elephant"
-        elif animal2 == "key":
-            anima2 = "Monkey"
-        elif animal2 == "phin":
-            anima2 = "Dolphin"
-        elif animal2 == "bra":
-            anima2 = "Zebra"
+        if animal2 == "phant":
+            animal2 = "Elephant"
+        if animal2 == "key":
+            animal2 = "Monkey"
+        if animal2 == "phin":
+            animal2 = "Dolphin"
+        if animal2 == "bra":
+            animal2 = "Zebra"
 
             
 
