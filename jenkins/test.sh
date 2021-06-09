@@ -4,10 +4,11 @@
 sudo apt-get update
 sudo apt-get install python3-venv python3-pip -y
 
+
 python3 -m venv venv
 source venv/bin/activate
 
-pip3 -r test-requirements.txt
+pip3 -r -S test-requirements.txt
 
 #pytest coverage service-1
 cd service-1
