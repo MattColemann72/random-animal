@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+    <div>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+                <div class='form_group'>
+                    {{ form.submit }}
+		        </div>
+	    </form>
+    </div>
+
+    <div>
+        <p>Merging a {{ animal1 }} and a {{ animal2 }} together.</p>
+        <p>Merge Complete.</p>
+        <p>We now have a {{ randanimal }}</p>
+    </div>
+    <div>
+        <p>Past animal creations...</p>
+        <p>
+            {% for name in allanimalnames %}
+            {{ name.animalname }} <br>
+            {% endfor %}
+        </p>
+    </div>
+    
+
+{% endblock body_content %}
