@@ -57,7 +57,7 @@ def index():
         db.session.add(AnimalNames(animalname = randanimal))
         db.session.commit()
 
-        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(2).all()
+        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
 
         # allanimalnames = "Testing"
             
