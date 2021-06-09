@@ -14,6 +14,15 @@
         <p>Merging a {{ animal1 }} and a {{ animal2 }} together.</p>
         <p>Merge Complete.</p>
         <p>We now have a {{ randanimal }}</p>
+    </div>
     <div>
+        <p>Past animal creations...</p>
+        <p>
+            {% for name in allanimalnames %}
+            {{ name.animalname }} <br>
+            {% endfor %}
+        </p>
+    </div>
+    
 
 {% endblock body_content %}

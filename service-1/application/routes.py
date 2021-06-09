@@ -2,8 +2,9 @@ from flask import render_template, request, jsonify, json
 from sqlalchemy import desc
 import requests
 
-from application import app
+from application import app, db
 from application.forms import GenerateAnimal
+from application.models import AnimalNames
 
 
 
@@ -22,9 +23,9 @@ def index():
     
     if form.validate_on_submit():
         get_animal1 = requests.get('http://service-2:5000/animal1').text
-        animal1 = get_animal1.text
+        animal1 = get_animal1
         get_animal2 = requests.get('http://service-3:5000/animal2').text
-        animal2 = get_animal2.text
+        animal2 = get_animal2
 
         randanimal = animal1 + animal2
         #Lion, Dog, Cat, Cow, Sheep
@@ -44,18 +45,24 @@ def index():
         # "potamus", "phant", "key", "phin", "bra"
         if animal2 == "potamus":
             animal2 = "Hippopotamus"
-        elif animal2 == "phant":
-            anima2 = "Elephant"
-        elif animal2 == "key":
-            anima2 = "Monkey"
-        elif animal2 == "phin":
-            anima2 = "Dolphin"
-        elif animal2 == "bra":
-            anima2 = "Zebra"
+        if animal2 == "phant":
+            animal2 = "Elephant"
+        if animal2 == "key":
+            animal2 = "Monkey"
+        if animal2 == "phin":
+            animal2 = "Dolphin"
+        if animal2 == "bra":
+            animal2 = "Zebra"
+        
+        db.session.add(AnimalNames(animalname = randanimal))
+        db.session.commit()
 
+        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
+
+        # allanimalnames = "Testing"
             
 
-        return render_template('index.html', title="Random Animal Name Generator", randanimal=randanimal, animal2=animal2, animal1=animal1, form=form)
+        return render_template('index.html', title="Random Animal Name Generator", randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, allanimalnames=allanimalnames)
 
         
 

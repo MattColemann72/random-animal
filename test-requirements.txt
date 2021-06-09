@@ -1,5 +1,6 @@
 Flask
 Flask-SQLAlchemy
+flask-testing
 Flask-WTF
 itsdangerous
 Jinja2
@@ -8,3 +9,7 @@ SQLAlchemy
 WTForms
 pymysql
 requests
+pytest
+pytest-cov
+requests_mock
+flask_testing
