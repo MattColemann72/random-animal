@@ -12,4 +12,4 @@ def makeanimnames():
     anim2 = request.json["anim2"]
     newanimname = anim1+anim2
     
-    return newanimname(newanimname, mimetype='text/plain')
+    return Response(newanimname, mimetype='text/plain')

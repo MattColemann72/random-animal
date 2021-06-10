@@ -55,11 +55,10 @@ def index():
         # if animal2 == "bra":
         #     animal2 = "Zebra"
         
-        db.session.add(AnimalNames(animalname = makeanimalname))
-        db.session.commit()
-        # allanimalnames ="Testing"
+        # db.session.add(AnimalNames(animalname = makeanimalname))
+        # db.session.commit()
 
-        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
+        # allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
 
         return render_template('index.html', title="Random Animal Name Generator", makeanimalname=makeanimalname, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, allanimalnames=allanimalnames)
 
