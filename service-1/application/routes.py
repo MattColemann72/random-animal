@@ -26,7 +26,9 @@ def index():
         animal1 = get_animal1
         get_animal2 = requests.get('http://service-3:5000/animal2').text
         animal2 = get_animal2
-        makeanimalname = requests.post('http://service-2:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
+        makeanimalname = requests.post('http://service-4:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
+
+        newanimal = makeanimalname.text
 
         #randanimal = animal1 + animal2
         #Lion,  Dog,    Cat,    Cow,    Sheep
@@ -55,11 +57,11 @@ def index():
         # if animal2 == "bra":
         #     animal2 = "Zebra"
         
-        # db.session.add(AnimalNames(animalname = makeanimalname))
-        # db.session.commit()
+        db.session.add(AnimalNames(animalname = newanimal))
+        db.session.commit()
 
-        # allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
+        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
 
-        return render_template('index.html', title="Random Animal Name Generator", makeanimalname=makeanimalname, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, allanimalnames=allanimalnames)
+        return render_template('index.html', title="Random Animal Name Generator", newanimal=newanimal, allanimalnames=allanimalnames, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, )
 
-    return render_template('index.html', title="Random Animal Name Generator", makeanimalname=makeanimalname, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form)
+    return render_template('landing-page.html', title="Random Animal Name Generator")#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form)
