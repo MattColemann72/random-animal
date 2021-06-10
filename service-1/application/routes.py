@@ -26,44 +26,41 @@ def index():
         animal1 = get_animal1
         get_animal2 = requests.get('http://service-3:5000/animal2').text
         animal2 = get_animal2
+        makeanimalname = requests.post('http://service-2:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
 
-        randanimal = animal1 + animal2
-        #Lion, Dog, Cat, Cow, Sheep
-        #"Li", "Do", "Ca", "Co", "She"
-        if animal1 == "Li":
-            animal1 = "Lion"
-        elif animal1 == "Do":
-            animal1 = "Dog"
-        elif animal1 == "Ca":
-            animal1 = "Cat"
-        elif animal1 == "Co":
-            animal1 = "Cow"
-        elif animal1 == "She":
-            animal1 = "Sheep"
+        #randanimal = animal1 + animal2
+        #Lion,  Dog,    Cat,    Cow,    Sheep
+        #"Li",  "Do",   "Ca",   "Co",   "She"
+        # if animal1 == "Li":
+        #     animal1 = "Lion"
+        # elif animal1 == "Do":
+        #     animal1 = "Dog"
+        # elif animal1 == "Ca":
+        #     animal1 = "Cat"
+        # elif animal1 == "Co":
+        #     animal1 = "Cow"
+        # elif animal1 == "She":
+        #     animal1 = "Sheep"
         
-        #hippopotamus,elephant,monkey,dolphin,zebra
-        # "potamus", "phant", "key", "phin", "bra"
-        if animal2 == "potamus":
-            animal2 = "Hippopotamus"
-        if animal2 == "phant":
-            animal2 = "Elephant"
-        if animal2 == "key":
-            animal2 = "Monkey"
-        if animal2 == "phin":
-            animal2 = "Dolphin"
-        if animal2 == "bra":
-            animal2 = "Zebra"
+        # #hippopotamus,elephant,monkey,dolphin,zebra
+        # # "potamus", "phant", "key", "phin", "bra"
+        # if animal2 == "potamus":
+        #     animal2 = "Hippopotamus"
+        # if animal2 == "phant":
+        #     animal2 = "Elephant"
+        # if animal2 == "key":
+        #     animal2 = "Monkey"
+        # if animal2 == "phin":
+        #     animal2 = "Dolphin"
+        # if animal2 == "bra":
+        #     animal2 = "Zebra"
         
-        db.session.add(AnimalNames(animalname = randanimal))
+        db.session.add(AnimalNames(animalname = makeanimalname))
         db.session.commit()
+        # allanimalnames ="Testing"
 
         allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
 
-        # allanimalnames = "Testing"
-            
+        return render_template('index.html', title="Random Animal Name Generator", makeanimalname=makeanimalname, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, allanimalnames=allanimalnames)
 
-        return render_template('index.html', title="Random Animal Name Generator", randanimal=randanimal, animal2=animal2, animal1=animal1, form=form, allanimalnames=allanimalnames)
-
-        
-
-    return render_template('index.html', title="Random Animal Name Generator", randanimal=randanimal, animal2=animal2, animal1=animal1, form=form)
+    return render_template('index.html', title="Random Animal Name Generator", makeanimalname=makeanimalname, form=form)#randanimal=randanimal, animal2=animal2, animal1=animal1, form=form)

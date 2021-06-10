@@ -1,19 +1,15 @@
-# from flask import render_template, Response
+from flask import request, Response
 # import random
 
 from application import app
 
 
 @app.route('/', methods = ['GET', 'POST'])
-@app.route('/home', methods = ['GET', 'POST'])
-def genanimal3():
-    #hippopotamus,elephant,monkey,dolphin,zebra
-    G2animals = ["Hippo", "Eleph", "Monk", "Dol", "Zeb"]
-    G2randAnimal = random.choice(G2animals)
-    #lion,dog,cat,cow,sheep
-    G1animals = ["on", "og", "at", "ow", "eep"]
-    G1randAnimal = random.choice(G1animals)
-
-    service4animal = G1randAnimal + G2randAnimal
+@app.route('/animal3', methods = ['GET', 'POST'])
+def makeanimnames():
+    animslist = request.data.decode('utf-8')
+    anim1 = request.json["anim1"]
+    anim2 = request.json["anim2"]
+    newanimname = anim1+anim2
     
-    return render_template('index.html', title="Random Animal Name Generator", service4animal=service4animal)
+    return newanimname(newanimname, mimetype='text/plain')

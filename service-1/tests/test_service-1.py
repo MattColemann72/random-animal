@@ -21,15 +21,12 @@ class TestBase(TestCase):
 class TestsHome(TestBase):
     def test_get_animal(self):
         with requests_mock.Mocker() as mocker:
-            for i in range(20):
-                response = self.client.get(url_for('index'))
-                self.assertIn(response.data.decode("utf-8"),["Li", "Do", "Ca", "Co", "She"])
-            # mocker.get('http://service-2:5000/animal1', text='Li')
-            # mocker.get('http://service-3:5000/animal2', text='potamus')
-            # response = self.client.get(url_for('index'))
-            # self.assertEqual(response.status_code, 200)
-            # self.assertIn(b'Li', response.data)
-    
+            mocker.get('http://service-2:5000/animal1', text='Li')
+            mocker.get('http://service-3:5000/animal2', text='potamus')
+            response = self.client.get(url_for('index'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'Lipotamus', response.data)
+
     # def test_db(self):
     #     with requests_mock.Mocker() as m:
     #         test_cases = [('Li', 'potamus'), ('Do', 'phant')]
