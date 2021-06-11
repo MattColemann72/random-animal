@@ -2,7 +2,7 @@ version: '3.8'
 services:
   service-1:
     build: ./service-1
-    image: mattcolemann/animal_generator_service-1:latest
+    image: ${DOCKER_USERNAME}/animal_generator_service-1:latest
     container_name: animal_generator_service-1
     ports: 
     - target: 5000
@@ -12,15 +12,15 @@ services:
 
   service-2:
     build: ./service-2
-    image: mattcolemann/animal_generator_service-2:latest
+    image: ${DOCKER_USERNAME}/animal_generator_service-2:latest
     container_name: animal_generator_service-2
 
   service-3:
     build: ./service-3
-    image: mattcolemann/animal_generator_service-3:latest
+    image: ${DOCKER_USERNAME}/animal_generator_service-3:latest
     container_name: animal_generator_service-3
 
   service-4:
     build: ./service-4
-    image: mattcolemann/animal_generator_service-4:latest
+    image: ${DOCKER_USERNAME}/animal_generator_service-4:latest
     container_name: animal_generator_service-4
