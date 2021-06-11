@@ -1,10 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Install Requirements')
+        stage('Install Requirements') {
             steps {
                 sh 'bash jenkins/install-requirements.sh'
             }
+        }
         stage('Test') {
             steps {
                 //pytest
