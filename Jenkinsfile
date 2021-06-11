@@ -22,6 +22,7 @@ pipeline {
             steps {
                 // install docker and docker compose
                 //docker-compose build
+                sh 'docker system prune --force --all'
                 sh 'docker-compose build --parallel'
             }
         }
@@ -36,7 +37,7 @@ pipeline {
             steps {
                 //install ansible on jenkins machine for jenkins user
                 //ansible-playbook -i inventory.yaml playbook.yaml
-                sh 'echo config'
+                sh 'cd ansible && ansible-playbook -i inventory.yaml playbook.yaml'
             }
         }
         stage('Deploy') {
