@@ -3,6 +3,7 @@ pipeline {
     environment {
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        install_dependencies = false
     }
     stages {
         stage('Install Requirements') {
@@ -37,7 +38,7 @@ pipeline {
             steps {
                 //install ansible on jenkins machine for jenkins user
                 //ansible-playbook -i inventory.yaml playbook.yaml
-                sh 'cd ansible && ansible-playbook -i inventory.yaml playbook.yaml'
+                sh 'cd ansible && ~/bin/ansible-playbook -i inventory.yaml playbook.yaml'
             }
         }
         stage('Deploy') {
