@@ -4,6 +4,7 @@ pipeline {
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
         install = 'false'
+        build = 'false'
     }
     stages {
         stage('Install Requirements') {
@@ -27,8 +28,12 @@ pipeline {
             steps {
                 // install docker and docker compose
                 //docker-compose build
-                sh 'docker system prune --force --all'
-                sh 'docker-compose build --parallel'
+                script{
+                    if (env.build == 'true'){
+                        sh 'docker system prune --force --all'
+                        sh 'docker-compose build --parallel'
+                    }
+                }
             }
         }
         stage('Push') {
