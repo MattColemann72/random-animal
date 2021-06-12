@@ -8,3 +8,7 @@
   roles:
   - docker
   - manager
+- hosts: nginx
+  become: true
+  roles:
+  - nginx
