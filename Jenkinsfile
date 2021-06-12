@@ -57,7 +57,7 @@ pipeline {
                 // create swarm infrastructure
                 // copy over docker-compose.yaml
                 // ssh: docker stack deploy --compose-file docker-compose.yaml animals
-                sh 'echo deploy'
+                sh 'bash jenkins/deploy.sh'
             }
         }
     }
