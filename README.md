@@ -22,14 +22,14 @@ I've also used my trello board to store my user stories.
 <br>
 
 ### User Stories
-![User Stories](https://github.com/MattColemann72/random-animal/blob/dev/misc/User-stories.jpg)
+![User Stories](https://github.com/MattColemann72/random-animal/blob/dev/misc/User-stories.jpg)<br>
 My user stories describe what my webapp should do. This has been useful for me when I was programming the app so that I knew exactly what I wanted to achieve.
 The user needs to be able to what animals they are merging together, the animal that has been created and finally the last 5 animal names that were generated.<br>With the briefness of the user stories I know that I need to generate 2 random animal names then merge the two of them into one name. Once this is done I know that I need to store the newly created names in a database so that I can show the previous 5 of them, then I can print the two names of the animals to the screen along with the made up animal name.
 
 <br>
 
 ### Entity Diagram
-![ERD](https://github.com/MattColemann72/random-animal/blob/dev/misc/erd-proj2.jpg)
+![ERD](https://github.com/MattColemann72/random-animal/blob/dev/misc/erd-proj2.jpg)<br>
 The entity diagram for this project is very simple with it being just the one table with no relationships. All I wanted to store was the made up name generated from the two animal names given. Like I have previously stated, I will then be able to grab the stored names to show them to the user.
 
 <br>
@@ -37,19 +37,19 @@ The entity diagram for this project is very simple with it being just the one ta
 ### Risk Assessment
 
 For my risk assessment I started with putting as many things down that I could think about before I started the project. As with anything though I ran into risks during the project and this can be seen in the image below. For example, I rand into a problem where I was constantly running out of space on my VM so I couldn't do any more builds. This therefore, went into the risk assessment as it would cause the application to not be able to run any future updates. Luckily this was a quick fix being able to purge all of the previous builds, but the first thing I did was setup a new VM before I knew you could do this.
-![Risk Assessment](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)
+![Risk Assessment](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)<br>
 
 <br>
 
 ### Continuous Deployment & Integration Pipeline
 The CI-CD pipeline shown in the image below is how I have set up my project. I've used it to automate the majority of processes which in the long run saves a lot of time in development.
-![CI/CD](https://github.com/MattColemann72/random-animal/blob/dev/misc/CI-CD_Pipeline-proj2.jpg)
+![CI/CD](https://github.com/MattColemann72/random-animal/blob/dev/misc/CI-CD_Pipeline-proj2.jpg)<br>
 
 <br>
 
 ### Jenkins
 Jenkins is used to manage my CI-CD pipeline and plays a major role in automation. For example without Jenkins, I would have to build the project manually each time. But by using a webhook linked with my GitHub account Jenkins automatically builds the webapp after each push to a specified branch. During development I used the dev branch for this. But after development I will be using my main branch. This is so that only the fully completed features are pushed to the live application rather than features still in development.<br>In the future I could setup another Jenkins server so that I could run a development server alongside the live server, to test out features properly before going live. 
-![Jenkins Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)
+![Jenkins Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)<br>
 As can be seen in the image above there are various stages for my pipeline, in particular, testing, building, pushing, config management and deployment. 
 
 <br>
@@ -77,5 +77,5 @@ Ansible is great for configuration. For example, I can use Ansible to setup grou
 <br>
 
 ## Front-End
-![WebApp Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/front-end-design.jpg)
+![WebApp Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/front-end-design.jpg)<br>
 [Animal Generator](http://34.105.185.232)
