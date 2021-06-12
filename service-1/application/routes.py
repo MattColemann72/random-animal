@@ -6,7 +6,7 @@ from application import app, db
 from application.forms import GenerateAnimal
 from application.models import AnimalNames
 
-##This is implementation-1
+##This is implementation-2
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/home', methods = ['GET', 'POST'])
@@ -31,32 +31,32 @@ def index():
         newanimal = makeanimalname.text
 
 
+        # Shark,    Octopus,    Reindeer,   Orangutan,  Pig
+        # Shar,     Octop,      Reind,      Orang,      Pi
+        if animal1 == "Shark":
+            animal1 = "Shar"
+        if animal1 == "Octopus":
+            animal1 = "Octop"
+        if animal1 == "Reindeer":
+            animal1 = "Reind"
+        if animal1 == "Orangutan":
+            animal1 = "Orang"
+        if animal1 == "Pig":
+            animal1 = "Pi"
 
-        #Lion,  Dog,    Cat,    Cow,    Sheep
-        #"Li",  "Do",   "Ca",   "Co",   "She"
-        if animal1 == "Li":
-            animal1 = "Lion"
-        elif animal1 == "Do":
-            animal1 = "Dog"
-        elif animal1 == "Ca":
-            animal1 = "Cat"
-        elif animal1 == "Co":
-            animal1 = "Cow"
-        elif animal1 == "She":
-            animal1 = "Sheep"
-        
-        #hippopotamus,elephant,monkey,dolphin,zebra
-        # "potamus", "phant", "key", "phin", "bra"
-        if animal2 == "potamus":
-            animal2 = "Hippopotamus"
-        if animal2 == "phant":
-            animal2 = "Elephant"
-        if animal2 == "key":
-            animal2 = "Monkey"
-        if animal2 == "phin":
-            animal2 = "Dolphin"
-        if animal2 == "bra":
-            animal2 = "Zebra"
+        # Giraffe,  Lizzard,    Rhino,  Flamingo,   Penguin
+        # raffe,     zard,        hino,    mingo,       guin 
+        if animal2 == "Giraffe":
+            animal2 = "raffe"
+        elif animal2 == "Lizzard":
+            animal2 = "zard"
+        elif animal2 == "Rhino":
+            animal2 = "hino"
+        elif animal2 == "Flamingo":
+            animal2 = "mingo"
+        elif animal2 == "Penguin":
+            animal2 = "guin"
+
         
         db.session.add(AnimalNames(animalname = newanimal))
         db.session.commit()
