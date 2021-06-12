@@ -7,7 +7,7 @@
   become: true
   roles:
   - docker
-  - manager
+  - worker
 - hosts: nginx
   become: true
   roles:
