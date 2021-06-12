@@ -23,22 +23,22 @@ You are required to create a service-oriented architecture for your application.
 <br>
 
 ### ERD
-![ERD](imagehere)
+![ERD](https://github.com/MattColemann72/random-animal/blob/dev/misc/erd-proj2.jpg)
 
 <br>
 
 ### Risk Assessment
-![Risk Assessment](Imagehere)
+![Risk Assessment](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)
 
 <br>
 
 ### CI/CD Pipeline
-![CI/CD](imagehere)
+![CI/CD](https://github.com/MattColemann72/random-animal/blob/dev/misc/CI-CD_Pipeline-proj2.jpg)
 
 <br>
 
 ### Jenkins
-![Jenkins Screenshot](imagehere)
+![Jenkins Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/Riskassessment-proj2.jpg)
 
 <br>
 
@@ -67,5 +67,5 @@ Breif Description of what I used Ansible for.
 <br>
 
 ## Front-End
-![WebApp Screenshot](imagehere)
-[Animal Generator](https://trello.com/b/WSZJLkvZ/animal-generator)
+![WebApp Screenshot](https://github.com/MattColemann72/random-animal/blob/dev/misc/front-end-design.jpg)
+[Animal Generator](http://34.105.185.232)
