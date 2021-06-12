@@ -3,8 +3,8 @@ pipeline {
     environment {
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
-        install = 'false'
-        build = 'false'
+        install = 'true'
+        build = 'true'
     }
     stages {
         stage('Install Requirements') {
