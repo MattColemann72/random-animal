@@ -13,12 +13,12 @@ You are required to create a service-oriented architecture for your application.
 ### Trello Board
 
 [Trello Link](https://trello.com/b/WSZJLkvZ/animal-generator)
-![Trello Board Day 1](/misc/image.jp)
+![Trello Board Day 1](https://github.com/MattColemann72/random-animal/blob/dev/misc/Trello-board.jpg)
 
 <br>
 
 ### User Stories
-![User Stories](Imagehere)
+![User Stories](https://github.com/MattColemann72/random-animal/blob/dev/misc/User-stories.jpg)
 
 <br>
 
