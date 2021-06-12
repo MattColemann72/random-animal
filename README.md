@@ -43,7 +43,7 @@ For my risk assessment I started with putting as many things down that I could t
 
 ### Continuous Deployment & Integration Pipeline
 The CI-CD pipeline shown in the image below is how I have set up my project. I've used it to automate the majority of processes which in the long run saves a lot of time in development.
-![CI/CD](https://github.com/MattColemann72/random-animal/blob/dev/misc/CI-CD_Pipeline-proj2.jpg)<br>
+![CI/CD](https://github.com/MattColemann72/random-animal/blob/dev/misc/CI-CD_Pipeline-proj2.png)<br>
 
 <br>
 
