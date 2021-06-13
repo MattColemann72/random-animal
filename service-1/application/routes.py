@@ -64,6 +64,7 @@ def index():
         if animal2 == "bra":
             animal2 = "Zebra"
 
+
         
         db.session.add(AnimalNames(animalname = newanimal))
         db.session.commit()
