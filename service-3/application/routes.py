@@ -12,3 +12,4 @@ def genanimal2():
     G2randAnimal = random.choice(G2animals)
     
     return Response(G2randAnimal, mimetype='text/plain')
+

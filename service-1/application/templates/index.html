@@ -1,33 +1,19 @@
 {% extends 'layout.html' %}
 {% block body_content %}
 
-<!--     <div>
-        <form method='POST' action=''>
-            {{ form.hidden_tag() }}
-                <div class='form_group'>
-                    {{ form.submit }}
-		        </div>
-	    </form>
-    </div> -->
-    {% if animal1 is sameas "" %}
-        <div>
-            <h1>Welcome to the Animal Generator</h1>
-        </div>
-    {% else %}
-        <div>
-            <p>Merging a {{ animal1 }} and a {{ animal2 }} together.</p>
-            <p>Merge Complete.</p>
-            <p>You have created a {{ newanimal }}</p>
-        </div>
-        <div>
-            <p>Past animal creations...</p>
-            <p>
-                {% for name in allanimalnames %}
-                {{ name.animalname }} <br>
-                {% endfor %}
-            </p>
-        </div>
-    {% endif %}
+    <div>
+        <p>Merging a {{ animal1 }} and a {{ animal2 }} together.</p>
+        <p>Merge Complete.</p>
+        <p>You have created a {{ newanimal }}</p>
+    </div>
+    <div>
+        <p>Past animal creations...</p>
+        <p>
+            {% for name in allanimalnames %}
+            {{ name.animalname }} <br>
+            {% endfor %}
+        </p>
+    </div>
     
     
 
