@@ -7,6 +7,7 @@ from application.forms import GenerateAnimal
 from application.models import AnimalNames
 
 ##This is implementation-1
+##Test Merge with dev Take-2
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/home', methods = ['GET', 'POST'])
@@ -17,11 +18,19 @@ def index():
 
     form = GenerateAnimal()
 
-    if request.method == 'GET':
-        return render_template('index.html', title="Random Animal Name Generator", form=form)
+    # if request.method == 'GET':
+    #     return render_template('index.html', title="Random Animal Name Generator", form=form)
     
     if form.validate_on_submit():
         userlanding = False
+        get_animal1 = requests.get('http://service-2:5000/animal1').text
+        animal1 = get_animal1
+        get_animal2 = requests.get('http://service-3:5000/animal2').text
+        animal2 = get_animal2
+        makeanimalname = requests.post('http://service-4:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
+
+        newanimal = makeanimalname.text
+    else:
         get_animal1 = requests.get('http://service-2:5000/animal1').text
         animal1 = get_animal1
         get_animal2 = requests.get('http://service-3:5000/animal2').text
