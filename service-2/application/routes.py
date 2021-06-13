@@ -13,3 +13,4 @@ def genanimal1():
     G1randAnimal = random.choice(G1animals)
     
     return Response(G1randAnimal, mimetype='text/plain')
+
