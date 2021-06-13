@@ -6,7 +6,8 @@ from application import app, db
 from application.forms import GenerateAnimal
 from application.models import AnimalNames
 
-
+##This is implementation-1
+##Test Merge with dev Take-2
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/home', methods = ['GET', 'POST'])

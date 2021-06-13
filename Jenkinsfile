@@ -3,11 +3,18 @@ pipeline {
     environment {
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        DATABASE_URI = credentials('DATABASE_URI')
+        install = 'false'
+        build = 'true'
     }
     stages {
         stage('Install Requirements') {
             steps {
-                sh 'bash jenkins/install-requirements.sh'
+                script{
+                    if (env.install == 'true'){
+                        sh 'bash jenkins/install-requirements.sh'
+                    }
+                }
             }
         }
         stage('Test') {
@@ -22,7 +29,12 @@ pipeline {
             steps {
                 // install docker and docker compose
                 //docker-compose build
-                sh 'docker-compose build --parallel'
+                script{
+                    if (env.build == 'true'){
+                        sh 'docker system prune --force --all'
+                        sh 'docker-compose build --parallel'
+                    }
+                }
             }
         }
         stage('Push') {
@@ -36,7 +48,8 @@ pipeline {
             steps {
                 //install ansible on jenkins machine for jenkins user
                 //ansible-playbook -i inventory.yaml playbook.yaml
-                sh 'echo config'
+                sh 'cd ansible && ~/.local/bin/ansible-playbook -i inventory.yaml playbook.yaml'
+                // sh 'cd ansible && -i inventory.yaml playbook.yaml'
             }
         }
         stage('Deploy') {
@@ -44,7 +57,7 @@ pipeline {
                 // create swarm infrastructure
                 // copy over docker-compose.yaml
                 // ssh: docker stack deploy --compose-file docker-compose.yaml animals
-                sh 'echo deploy'
+                sh 'bash jenkins/deploy.sh'
             }
         }
     }
