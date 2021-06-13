@@ -32,7 +32,7 @@ pipeline {
                 script{
                     if (env.build == 'true'){
                         sh 'docker system prune --force --all'
-                        sh 'docker-compose build --parallel'
+                        // sh 'docker-compose build --parallel'
                     }
                 }
             }
