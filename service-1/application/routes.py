@@ -40,29 +40,31 @@ def index():
 
         # Shark,    Octopus,    Reindeer,   Orangutan,  Pig
         # Shar,     Octop,      Reind,      Orang,      Pi
-        if animal1 == "Shark":
+        if animal1 == "Sha":
             animal1 = "Shark"
-        if animal1 == "Octopus":
+        if animal1 == "Octo":
             animal1 = "Octopus"
-        if animal1 == "Reindeer":
+        if animal1 == "Rei":
             animal1 = "Reindeer"
-        if animal1 == "Orangutan":
+        if animal1 == "Orangu":
             animal1 = "Orangutan"
-        if animal1 == "Pig":
-            animal1 = "Pig"
+        if animal1 == "Ba":
+            animal1 = "Bat"
 
         # Giraffe,  Lizzard,    Rhino,  Flamingo,   Penguin
         # raffe,     zard,        hino,    mingo,       guin 
-        if animal2 == "Giraffe":
+        if animal2 == "raffe":
             animal2 = "Giraffe"
-        elif animal2 == "Lizzard":
+        elif animal2 == "zard":
             animal2 = "Lizzard"
-        elif animal2 == "Rhino":
+        elif animal2 == "hino":
             animal2 = "Rhino"
-        elif animal2 == "Flamingo":
+        elif animal2 == "mingo":
             animal2 = "Flamingo"
-        elif animal2 == "Penguin":
+        elif animal2 == "guin":
             animal2 = "Penguin"
+        elif animal2 == "dillo":
+            animal2 = "Armadillo"
 
         
         db.session.add(AnimalNames(animalname = newanimal))
