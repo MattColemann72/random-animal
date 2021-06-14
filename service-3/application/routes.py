@@ -7,9 +7,11 @@ from application import app
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/animal2', methods = ['GET', 'POST'])
 def genanimal2():
-    #hippopotamus,elephant,monkey,dolphin,zebra
-    G2animals = ["potamus", "phant", "key", "phin", "bra"]
-    G2randAnimal = random.choice(G2animals)
+
+    # Giraffe, Lizzard, Rhino, Flamingo, Penguin, Armadillo
+    # raffe, zard, hino, mingo, guin
+    G2animals = ["raffe", "zard", "hino", "mingo", "guin", "dillo"]
+
     
     return Response(G2randAnimal, mimetype='text/plain')
 

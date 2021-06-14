@@ -24,34 +24,59 @@ def index():
     makeanimalname = requests.post('http://service-4:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
     newanimal = makeanimalname.text
     
-    #Lion,  Dog,    Cat,    Cow,    Sheep
-    #"Li",  "Do",   "Ca",   "Co",   "She"
-    if animal1 == "Li":
-        animal1 = "Lion"
-    elif animal1 == "Do":
-        animal1 = "Dog"
-    elif animal1 == "Ca":
-        animal1 = "Cat"
-    elif animal1 == "Co":
-        animal1 = "Cow"
-    elif animal1 == "She":
-        animal1 = "Sheep"
-    
-    #hippopotamus,elephant,monkey,dolphin,zebra
-    # "potamus", "phant", "key", "phin", "bra"
-    if animal2 == "potamus":
-        animal2 = "Hippopotamus"
-    if animal2 == "phant":
-        animal2 = "Elephant"
-    if animal2 == "key":
-        animal2 = "Monkey"
-    if animal2 == "phin":
-        animal2 = "Dolphin"
-    if animal2 == "bra":
-        animal2 = "Zebra"
-    
-    db.session.add(AnimalNames(animalname = newanimal))
-    db.session.commit()
+
+    if form.validate_on_submit():
+        get_animal1 = requests.get('http://service-2:5000/animal1').text
+        animal1 = get_animal1
+        get_animal2 = requests.get('http://service-3:5000/animal2').text
+        animal2 = get_animal2
+        makeanimalname = requests.post('http://service-4:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
+
+        newanimal = makeanimalname.text
+    else:
+        get_animal1 = requests.get('http://service-2:5000/animal1').text
+        animal1 = get_animal1
+        get_animal2 = requests.get('http://service-3:5000/animal2').text
+        animal2 = get_animal2
+        makeanimalname = requests.post('http://service-4:5000/animal3', json={"anim1":animal1, "anim2":animal2 })
+
+        newanimal = makeanimalname.text
+
+
+        # Shark,    Octopus,    Reindeer,   Orangutan,  Pig
+        # Shar,     Octop,      Reind,      Orang,      Pi
+        if animal1 == "Sha":
+            animal1 = "Shark"
+        if animal1 == "Octo":
+            animal1 = "Octopus"
+        if animal1 == "Rei":
+            animal1 = "Reindeer"
+        if animal1 == "Orangu":
+            animal1 = "Orangutan"
+        if animal1 == "Ba":
+            animal1 = "Bat"
+
+        # Giraffe,  Lizzard,    Rhino,  Flamingo,   Penguin
+        # raffe,     zard,        hino,    mingo,       guin 
+        if animal2 == "raffe":
+            animal2 = "Giraffe"
+        elif animal2 == "zard":
+            animal2 = "Lizzard"
+        elif animal2 == "hino":
+            animal2 = "Rhino"
+        elif animal2 == "mingo":
+            animal2 = "Flamingo"
+        elif animal2 == "guin":
+            animal2 = "Penguin"
+        elif animal2 == "dillo":
+            animal2 = "Armadillo"
+
+        
+        db.session.add(AnimalNames(animalname = newanimal))
+        db.session.commit()
+
+        allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
+
 
     allanimalnames = AnimalNames.query.order_by(desc(AnimalNames.id)).limit(5).all()
     
