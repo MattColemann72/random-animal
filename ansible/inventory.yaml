@@ -2,7 +2,7 @@ all:
   children:
     managers:
       hosts:
-        10.154.0.24:
+        10.154.0.29:
     workers:
       hosts:
         10.154.0.25:
